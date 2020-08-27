@@ -58,10 +58,6 @@ footer a:hover {
   border-style: none;
 }
 
-.currentWeather i {
-  font-size: 60px;
-}
-
 .currentWeather {
   text-align: center;
 }
@@ -69,6 +65,8 @@ footer a:hover {
 .city {
   font-size: 20px;
   text-transform: uppercase;
+  position: relative;
+  bottom: 20px;
 }
 
 .temperature {

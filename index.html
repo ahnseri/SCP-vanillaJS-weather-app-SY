@@ -17,6 +17,7 @@
       src="https://kit.fontawesome.com/5ebd6470ec.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>SheCodes+ Final Project: Weather App</title>
   </head>
@@ -30,27 +31,27 @@
             <div class="row justify-content-center">
               <div class="col-auto">
                 <div class="currentWeather">
-                  <i class="fas fa-cloud-sun-rain"></i>
+                  <img src="" class="mainIcon" id="weather-icon" />
                   <br />
-                  <span class="city">Toronto</span>
+                  <span class="city" id="city"></span>
                 </div>
               </div>
             </div>
             <div class="row justify-content-around">
               <div class="col-6">
                 <div class="float-left">
-                  <span class="temperature">29</span
-                  ><span class="units">°C</span>
+                  <span class="temperature" id="temperature"></span
+                  ><span class="units" id="units">°C</span>
                   <br />
-                  <span class="weatherDes">Mostly Cloudy</span>
+                  <span class="weatherDes" id="weather-des"></span>
                 </div>
               </div>
               <div class="col-auto mr-ml-auto">
-                <span class="detailedWeatherDes">
+                <span class="detailedWeatherDes" id="detailed-weather-des">
                   <ul>
-                    <li>Feels like: 30°C</li>
-                    <li>Humidity: 53%</li>
-                    <li>Wind: 26 km/hr</li>
+                    <li>Feels like: <span id="feels-like"></span>°C</li>
+                    <li>Humidity: <span id="humidity"></span>%</li>
+                    <li>Wind: <span id="wind-speed"></span> km/hr</li>
                   </ul>
                 </span>
               </div>
@@ -58,7 +59,7 @@
           </section>
 
           <section class="searchForm">
-            <form>
+            <form id="search-form">
               <div class="form-row">
                 <div class="col">
                   <input
@@ -66,6 +67,7 @@
                     placeholder="Change city"
                     autocomplete="off"
                     class="form-control form-control-sm"
+                    id="search-city"
                   />
                 </div>
                 <div class="col-auto">
