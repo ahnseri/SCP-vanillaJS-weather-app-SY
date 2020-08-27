@@ -2,3 +2,72 @@ body {
   font-family: "Jost", sans-serif;
   color: #382933;
 }
+
+section.loadWeather {
+  padding: 10px 60px 10px 60px;
+  background: #f5f4ea3b;
+  border-radius: 15px;
+}
+
+ul {
+  margin: 0 auto;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+footer {
+  text-align: center;
+  font-size: small;
+}
+
+.card {
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 15px;
+  border-style: none;
+  background-image: linear-gradient(-180deg, #cbbacc 0%, #2580b3 100%);
+}
+
+.card-header {
+  text-align: center;
+  font-size: small;
+  background: none;
+  border-style: none;
+}
+
+.currentWeather i {
+  font-size: 60px;
+}
+
+.city {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.temperature {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.units {
+  font-size: 30px;
+  font-weight: bold;
+  position: relative;
+  bottom: 20px;
+}
+
+.weatherDes {
+  font-size: small;
+  text-transform: capitalize;
+  position: relative;
+  bottom: 20px;
+}
+
+.detailedWeatherDes {
+  font-size: small;
+  position: relative;
+  top: 20px;
+}

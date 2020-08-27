@@ -13,10 +13,59 @@
       href="https://fonts.googleapis.com/css2?family=Jost&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/5ebd6470ec.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>SheCodes+ Final Project: Weather App</title>
   </head>
   <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-header">Thu., Aug. 27 | 2:21 PM</div>
+
+          <section class="loadWeather">
+            <div class="row justify-content-center">
+              <div class="col-auto">
+                <div class="currentWeather">
+                  <i class="fas fa-cloud-sun-rain"></i>
+                  <br />
+                  <span class="city">Toronto</span>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-around">
+              <div class="col-6">
+                <div class="float-left">
+                  <span class="temperature">29</span
+                  ><span class="units">°C</span>
+                  <br />
+                  <span class="weatherDes">Mostly Cloudy</span>
+                </div>
+              </div>
+              <div class="col-auto mr-ml-auto">
+                <span class="detailedWeatherDes">
+                  <ul>
+                    <li>Feels like: 30°C</li>
+                    <li>Humidity: 53%</li>
+                    <li>Wind: 26 km/hr</li>
+                  </ul>
+                </span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <footer>
+        <a href="https://quirky-mcnulty-aeb2e4.netlify.app" target="_blank"
+          >Open-source code</a
+        >
+        by Sherry-Anne Yu
+      </footer>
+    </div>
+
     <script src="src/script.js"></script>
   </body>
 </html>
