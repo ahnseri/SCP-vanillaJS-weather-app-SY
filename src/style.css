@@ -97,3 +97,21 @@ footer a:hover {
 .searchForm {
   padding: 10px;
 }
+
+.forecast-temp {
+  text-align: center;
+  font-size: small;
+  white-space: nowrap;
+}
+
+.forecast-icon img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.forecast-week {
+  background: rgba(255, 255, 255, 0.192);
+  border-radius: 10px;
+  margin: 1px 8px 5px;
+}

@@ -38,6 +38,69 @@ function formatDate(timestamp) {
 let now = new Date();
 document.querySelector("#timestamp").innerHTML = formatDate(now);
 
+//get and show weather forecast
+function getForecastFahrenheit() {
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/onecall?";
+  let apiUrl = `${apiEndpoint}lat=${latitude}&lon=${longitude}&units=imperial&appid=${apiKey}&exclude=minutely,hourly`;
+  axios.get(apiUrl).then(showForecast);
+}
+function getForecastCelsius() {
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/onecall?";
+  let apiUrl = `${apiEndpoint}lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}&exclude=minutely,hourly`;
+  axios.get(apiUrl).then(showForecast);
+}
+
+function showForecast(response) {
+  forecastElement.innerHTML = null;
+  let forecast = null;
+  for (let index = 1; index <= 5; index++) {
+    forecast = response.data.daily[index];
+    forecastElement.innerHTML += `
+        <div class = "card text-center col-sm-2 forecast-week">
+					<ul class = "list-group list-group-horizontal-sm">
+						<li class = "list-group-item.flex-fill">
+							<span class = "forecast-day">
+								${formatDay(forecast.dt * 1000)}
+							</span><br />
+							<span class = "forecast-icon">
+								<img src="https://openweathermap.org/img/wn/${
+                  forecast.weather[0].icon
+                }@2x.png" />
+							</span>
+							<span class="forecast-temp">
+								<strong>${Math.round(forecast.temp.max)}° / ${Math.round(forecast.temp.min)}°
+							</span>
+						</li>
+					</ul>	
+        `;
+  }
+}
+
+//convert celsius and fahrenheit
+function getFahrenheit(temp) {
+  return Math.round((temp * 9) / 5 + 32);
+}
+
+function showFahrenheit(event) {
+  event.preventDefault();
+  document.querySelector("#temperature").innerHTML = getFahrenheit(celsiusTemp);
+  document.querySelector("#feels-like").innerHTML = getFahrenheit(
+    celsiusTempFeel
+  );
+  document.querySelector("#units-main").innerHTML = "°F";
+  document.querySelector("#units-des").innerHTML = "°F";
+  getForecastFahrenheit();
+}
+
+function showCelsius(event) {
+  event.preventDefault();
+  document.querySelector("#temperature").innerHTML = Math.round(celsiusTemp);
+  document.querySelector("#feels-like").innerHTML = Math.round(celsiusTempFeel);
+  document.querySelector("#units-main").innerHTML = "°C";
+  document.querySelector("#units-des").innerHTML = "°C";
+  getForecastCelsius();
+}
+
 //get and display current weather
 function getLocationInfo(response) {
   cityName = response.data.name;
@@ -46,10 +109,10 @@ function getLocationInfo(response) {
   return response;
 }
 
-function getWeatherInfo(response) {
+function getWeatherInfo() {
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/onecall?";
   let apiUrl = `${apiEndpoint}lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}&exclude=minutely,hourly`;
-  axios.get(apiUrl).then(showTodayWeather);
+  axios.get(apiUrl).then(showTodayWeather).then(showForecast);
 }
 
 function showTodayWeather(response) {
@@ -111,29 +174,6 @@ function getUserLocation(event) {
   navigator.geolocation.getCurrentPosition(updateGeolocation);
 }
 
-//convert celsius and fahrenheit
-function getFahrenheit(temp) {
-  return Math.round((temp * 9) / 5 + 32);
-}
-
-function showFahrenheit(event) {
-  event.preventDefault();
-  document.querySelector("#temperature").innerHTML = getFahrenheit(celsiusTemp);
-  document.querySelector("#feels-like").innerHTML = getFahrenheit(
-    celsiusTempFeel
-  );
-  document.querySelector("#units-main").innerHTML = "°F";
-  document.querySelector("#units-des").innerHTML = "°F";
-}
-
-function showCelsius(event) {
-  event.preventDefault();
-  document.querySelector("#temperature").innerHTML = Math.round(celsiusTemp);
-  document.querySelector("#feels-like").innerHTML = Math.round(celsiusTempFeel);
-  document.querySelector("#units-main").innerHTML = "°C";
-  document.querySelector("#units-des").innerHTML = "°C";
-}
-
 //user action
 let changeCityForm = document.querySelector("#search-form");
 changeCityForm.addEventListener("submit", handleSubmit);
@@ -151,9 +191,11 @@ fahrenheit.addEventListener("click", showFahrenheit);
 let apiKey = "264d058cf40518d3759e3102bcc572cf";
 let units = "metric";
 let city = null;
+let cityName = null;
 let latitude = null;
 let longitude = null;
 let celsiusTemp = null;
 let celsiusTempFeel = null;
+let forecastElement = document.querySelector("#forecast");
 
 search("Toronto");
