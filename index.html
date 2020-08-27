@@ -41,7 +41,7 @@
               <div class="col-6">
                 <div class="float-left">
                   <span class="temperature" id="temperature"></span
-                  ><span class="units" id="units">°C</span>
+                  ><span class="units" id="units-main">°C</span>
                   <br />
                   <span class="weatherDes" id="weather-des"></span>
                 </div>
@@ -49,7 +49,10 @@
               <div class="col-auto mr-ml-auto">
                 <span class="detailedWeatherDes" id="detailed-weather-des">
                   <ul>
-                    <li>Feels like: <span id="feels-like"></span>°C</li>
+                    <li>
+                      Feels like: <span id="feels-like"></span
+                      ><span id="units-des">°C</span>
+                    </li>
                     <li>Humidity: <span id="humidity"></span>%</li>
                     <li>Wind: <span id="wind-speed"></span> km/hr</li>
                   </ul>
@@ -75,13 +78,25 @@
                     <button type="submit" class="btn btn-secondary btn-sm">
                       <i class="fas fa-search"></i>
                     </button>
-                    <button type="button" class="btn btn-secondary btn-sm">
+                    <button
+                      type="button"
+                      class="btn btn-secondary btn-sm"
+                      id="user-location"
+                    >
                       <i class="fas fa-map-marker-alt"></i>
                     </button>
-                    <button type="button" class="btn btn-secondary btn-sm">
+                    <button
+                      type="button"
+                      class="btn btn-secondary btn-sm"
+                      id="celsius"
+                    >
                       <a href="#">°C</a>
                     </button>
-                    <button type="button" class="btn btn-secondary btn-sm">
+                    <button
+                      type="button"
+                      class="btn btn-secondary btn-sm"
+                      id="fahrenheit"
+                    >
                       <a href="#">°F</a>
                     </button>
                   </div>
