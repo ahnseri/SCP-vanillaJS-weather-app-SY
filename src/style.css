@@ -33,6 +33,16 @@ footer {
   font-size: small;
 }
 
+footer a {
+  color: #40a8c4;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #07689f;
+  text-decoration: none;
+}
+
 .card {
   max-width: 500px;
   margin: 0 auto;
