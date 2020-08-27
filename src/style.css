@@ -18,6 +18,16 @@ li {
   list-style-type: none;
 }
 
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
 footer {
   text-align: center;
   font-size: small;
@@ -40,6 +50,10 @@ footer {
 
 .currentWeather i {
   font-size: 60px;
+}
+
+.currentWeather {
+  text-align: center;
 }
 
 .city {
@@ -70,4 +84,8 @@ footer {
   font-size: small;
   position: relative;
   top: 20px;
+}
+
+.searchForm {
+  padding: 10px;
 }
