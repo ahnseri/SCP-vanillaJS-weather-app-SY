@@ -68,7 +68,9 @@ function showForecast(response) {
                 }@2x.png" />
 							</span>
 							<span class="forecast-temp">
-								<strong>${Math.round(forecast.temp.max)}° / ${Math.round(forecast.temp.min)}°
+								<strong>${Math.round(forecast.temp.max)}°</strong> / ${Math.round(
+      forecast.temp.min
+    )}°
 							</span>
 						</li>
 					</ul>	

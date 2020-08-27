@@ -48,7 +48,7 @@ footer a:hover {
   margin: 0 auto;
   border-radius: 15px;
   border-style: none;
-  background-image: linear-gradient(-180deg, #cbbacc 0%, #2580b3 100%);
+  background-image: linear-gradient(to top, #96acc5 0%, #d6dfec 100%);
 }
 
 .card-header {
@@ -114,4 +114,14 @@ footer a:hover {
   background: rgba(255, 255, 255, 0.192);
   border-radius: 10px;
   margin: 1px 8px 5px;
+}
+
+.btn-secondary {
+  background: #648191;
+  border: #648191;
+}
+
+.btn-secondary:hover {
+  background: #303e46;
+  border: #303e46;
 }
