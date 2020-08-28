@@ -110,6 +110,7 @@ function showTodayWeather(response) {
     "alt",
     response.data.current.weather[0].description
   );
+  document.querySelector("#error-msg").innerHTML = "";
   return response;
 }
 
@@ -132,7 +133,9 @@ function search(city) {
     let apiUrl = `${apiEndpoint}${city}&units=${units}&appid=${apiKey}`;
     axios.get(apiUrl).then(getLocationInfo).then(getWeatherInfo);
   } else {
-    alert(`Please enter a city`);
+    document.querySelector(
+      "#error-msg"
+    ).innerHTML = `Please enter a city name:`;
   }
 }
 
