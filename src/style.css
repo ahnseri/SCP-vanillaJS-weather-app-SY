@@ -38,11 +38,7 @@ footer a:hover {
 }
 
 .container {
-  margin-top: 30px;
-  margin-left: 0px;
-  margin-right: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding: 30px 0px 0px;
 }
 
 .card {
