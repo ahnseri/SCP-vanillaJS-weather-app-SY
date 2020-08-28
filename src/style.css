@@ -3,12 +3,6 @@ body {
   color: #382933;
 }
 
-section.loadWeather {
-  padding: 10px 60px 10px 60px;
-  background: #ffffff25;
-  border-radius: 15px;
-}
-
 ul {
   margin: 0 auto;
   padding: 0;
@@ -45,6 +39,10 @@ footer a:hover {
 
 .container {
   margin-top: 30px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .card {
@@ -53,7 +51,7 @@ footer a:hover {
   border-radius: 15px;
   border-style: solid;
   border-width: 5px;
-  border-color: #e6e7f3;
+  border-color: #ebecf8;
   background-image: linear-gradient(-225deg, #cbbacc 0%, #6499b8 100%);
 }
 
@@ -62,6 +60,12 @@ footer a:hover {
   font-size: small;
   background: none;
   border-style: none;
+}
+
+.loadWeather {
+  padding: 10px 60px 10px 60px;
+  background: #ffffff25;
+  border-radius: 15px;
 }
 
 .currentWeather {
@@ -117,7 +121,7 @@ footer a:hover {
 }
 
 .forecast-week {
-  background: rgba(255, 255, 255, 0.075);
+  background: rgba(255, 255, 255, 0.041);
   border-radius: 10px;
   margin: 1px 8px 5px;
   padding: 10px;
@@ -130,15 +134,15 @@ footer a:hover {
 }
 
 .btn-secondary {
-  background: #3e5570;
-  border: #3e5570;
+  background: #536488;
+  border: #536488;
 }
 
 .btn-secondary:hover {
-  background: #183546;
-  border: #183546;
+  background: #37425a;
+  border: #37425a;
 }
 
-#error-msg {
+.errorMsg {
   font-size: small;
 }

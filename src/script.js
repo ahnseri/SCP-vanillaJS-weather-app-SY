@@ -80,7 +80,6 @@ function showForecast(response) {
 
 //get and display current weather
 function showTodayWeather(response) {
-  console.log(response.data);
   document.querySelector("#city").innerHTML = cityName;
 
   celsiusTemp = response.data.current.temp;
