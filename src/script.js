@@ -76,6 +76,7 @@ function getWeatherInfo() {
 }
 
 function showTodayWeather(response) {
+  console.log(response.data);
   document.querySelector("#city").innerHTML = cityName;
 
   celsiusTemp = response.data.current.temp;
@@ -93,9 +94,9 @@ function showTodayWeather(response) {
   document.querySelector("#humidity").innerHTML =
     response.data.current.humidity;
 
-  document.querySelector("#wind-speed").innerHTML = Math.round(
-    response.data.current.wind_speed * 3.6
-  );
+  document.querySelector("#wind-speed").innerHTML = `${Math.round(
+    response.data.current.wind_speed
+  )} ${getWindUnit()}`;
 
   let mainWeatherIcon = document.querySelector("#weather-icon");
   mainWeatherIcon.setAttribute(
@@ -116,6 +117,16 @@ function getTempUnit() {
   } else {
     {
       return `°F`;
+    }
+  }
+}
+
+function getWindUnit() {
+  if (unit === "metric") {
+    return `m/s`;
+  } else {
+    {
+      return `mph`;
     }
   }
 }
