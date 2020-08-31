@@ -5,6 +5,7 @@ function formatDay(timestamp) {
   let day = daysIndex[date.getDay()];
   return day;
 }
+
 function formatMonth(date) {
   let monthIndex = [
     "Jan",
@@ -23,6 +24,7 @@ function formatMonth(date) {
   let month = monthIndex[date.getMonth()];
   return month;
 }
+
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let getDate = date.getDate();
@@ -56,25 +58,25 @@ function showForecast(response) {
   for (let index = 1; index <= 5; index++) {
     forecast = response.data.daily[index];
     forecastElement.innerHTML += `
-        <div class = "card text-center col-sm-2 forecast-week">
-					<ul class = "list-group list-group-horizontal-sm">
-						<li class = "list-group-item.flex-fill">
-							<span class = "forecast-day">
-								${formatDay(forecast.dt * 1000)}
-							</span><br />
-							<span class = "forecast-icon">
-								<img src="https://openweathermap.org/img/wn/${
-                  forecast.weather[0].icon
-                }@2x.png" />
-							</span>
-							<span class="forecast-temp">
-								<strong>${Math.round(forecast.temp.max)}°</strong> / ${Math.round(
+    <div class="card text-center col-sm-2 forecast-week">
+    <ul class="list-group list-group-horizontal-sm">
+      <li class="list-group-item.flex-fill">
+        <span class="forecast-day">
+          ${formatDay(forecast.dt * 1000)}
+        </span><br />
+        <span class="forecast-icon">
+          <img src="https://openweathermap.org/img/wn/${
+            forecast.weather[0].icon
+          }@2x.png">
+        </span>
+        <span class="forecast-temp">
+          <strong>${Math.round(forecast.temp.max)}°</strong> / ${Math.round(
       forecast.temp.min
     )}°
-							</span>
-						</li>
-					</ul>	
-        `;
+        </span>
+      </li>
+    </ul>
+    `;
   }
 }
 
@@ -126,6 +128,7 @@ function getLocationInfo(response) {
   return response;
 }
 
+//get city from user input
 function search(city) {
   if (city) {
     let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?q=";
