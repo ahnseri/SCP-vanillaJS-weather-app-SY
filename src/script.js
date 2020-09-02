@@ -41,32 +41,39 @@ let now = new Date();
 document.querySelector("#timestamp").innerHTML = formatDate(now);
 
 //get city from user input
-function search(city, unit) {
-  if (city) {
-    let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?q=";
-    let apiUrl = `${apiEndpoint}${city}&units=${unit}&appid=${apiKey}`;
-    axios.get(apiUrl).then(getLocationInfo).then(getWeatherInfo);
-  } else {
-    document.querySelector(
-      "#error-msg"
-    ).innerHTML = `Please enter a city name:`;
-  }
-}
-
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-city");
   currentCity = city.value;
-  search(city.value, unit);
-  city.value = "";
+  if (currentCity.length <= 0) {
+    document.querySelector(
+      "#error-msg"
+    ).innerHTML = `Please enter a city name:`;
+  } else {
+    search(city.value, unit);
+    city.value = "";
+  }
 }
 
+function search(city, unit) {
+  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?q=";
+  let apiUrl = `${apiEndpoint}${city}&units=${unit}&appid=${apiKey}`;
+  axios.get(apiUrl).then(getLocationInfo).catch(error);
+}
+
+function error() {
+  if (error) {
+    document.querySelector(
+      "#error-msg"
+    ).innerHTML = `Sorry, we could not find that location. Please try again.`;
+  }
+}
 //get & display current weather
 function getLocationInfo(response) {
   cityName = response.data.name;
   latitude = response.data.coord.lat;
   longitude = response.data.coord.lon;
-  return response;
+  getWeatherInfo();
 }
 
 function getWeatherInfo() {
