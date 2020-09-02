@@ -50,7 +50,7 @@ function handleSubmit(event) {
       "#error-msg"
     ).innerHTML = `Please enter a city name:`;
   } else {
-    search(city.value, unit);
+    search(currentCity, unit);
     city.value = "";
   }
 }
@@ -68,6 +68,7 @@ function error() {
     ).innerHTML = `Sorry, we could not find that location. Please try again.`;
   }
 }
+
 //get & display current weather
 function getLocationInfo(response) {
   cityName = response.data.name;
